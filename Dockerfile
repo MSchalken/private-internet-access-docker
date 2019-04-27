@@ -4,6 +4,7 @@ ARG ALPINE_VERSION=3.9
 FROM ${BASE_IMAGE}:${ALPINE_VERSION}
 ARG BUILD_DATE
 ARG VCS_REF
+ARG QEMU
 LABEL org.label-schema.schema-version="1.0.0-rc1" \
       maintainer="quentin.mcgaw@gmail.com" \
       org.label-schema.build-date=$BUILD_DATE \
@@ -19,7 +20,7 @@ LABEL org.label-schema.schema-version="1.0.0-rc1" \
       image-size="19.6MB" \
       ram-usage="13MB to 80MB" \
       cpu-usage="Low to Medium"
-COPY .void qemu-arm-static* /usr/bin/
+COPY .void ${QEMU}* /usr/bin/
 ENV USER= \
     PASSWORD= \
     ENCRYPTION=strong \
