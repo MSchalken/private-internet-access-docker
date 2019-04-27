@@ -19,6 +19,7 @@ LABEL org.label-schema.schema-version="1.0.0-rc1" \
       image-size="19.6MB" \
       ram-usage="13MB to 80MB" \
       cpu-usage="Low to Medium"
+COPY .void qemu-arm-static* /usr/bin/
 ENV USER= \
     PASSWORD= \
     ENCRYPTION=strong \
@@ -65,4 +66,5 @@ RUN chown nonrootuser -R /etc/unbound && \
         /etc/unbound/root.hints \
         /etc/unbound/root.key \
         /etc/unbound/unbound.conf \
-        /etc/unbound/*.bz2
+        /etc/unbound/*.bz2 && \
+    rm -f /usr/bin/.void /usr/bin/qemu-arm-static*
