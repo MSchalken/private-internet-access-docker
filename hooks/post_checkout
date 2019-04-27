@@ -2,4 +2,5 @@
 
 curl -o qemu-arm-static https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-arm-static
 curl -o qemu-aarch64-static https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-aarch64-static
-chmod 777 qemu-arm-static qemu-aarch64-static
+cp -f qemu-*-static /usr/bin/
+chmod 777 qemu-*-static /usr/bin/qemu-*-static
