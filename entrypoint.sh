@@ -255,6 +255,9 @@ exitOnError $? "Cannot add 'auth-user-pass /auth.conf' to $TARGET_PATH/config.ov
 # Reconnects automatically on failure
 echo "auth-retry nointeract" >> "$TARGET_PATH/config.ovpn"
 exitOnError $? "Cannot add 'auth-retry nointeract' to $TARGET_PATH/config.ovpn"
+# Add keepalive to force reconnection on connection loss
+echo "keepalive 10 30" >> "$TARGET_PATH/config.ovpn"
+exitOnError $? "Cannot add 'keepalive 10 30' to $TARGET_PATH/config.ovpn"
 # Prevents auth_failed infinite loops - make it interact? Remove persist-tun? nobind?
 echo "pull-filter ignore \"auth-token\"" >> "$TARGET_PATH/config.ovpn"
 exitOnError $? "Cannot add 'pull-filter ignore \"auth-token\"' to $TARGET_PATH/config.ovpn"
